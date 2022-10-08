@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col card mb-4  mt-3">
+            {% if post.full_img %}
+                <img src="{{ post.full_img.url }}" class="card-img-top mt-2 rounded" alt="post-img">
+            {% endif %}
+            <div class="card-body">
+                <h1>{% block title %} {{ post.title }} {% endblock title %}</h1>
+                <p class=" text-muted">{{ post.author }} | {{ post.created_on }}</p>
+                <p class="card-text ">{{ post.content }}</p>
+                <p class="card-text">Tags:
+                {% for tag in post.tags.all %}
+                    <a href="{% url 'tag_detail' tag.slug %}" class="btn btn-outline-success rounded-pill">{{ tag.title }}</a>
+                {% endfor %}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
