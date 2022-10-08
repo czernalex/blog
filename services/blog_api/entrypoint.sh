@@ -51,7 +51,7 @@ else
 fi
 
 echo ">>> [${BLUE}INFO${NC}]: LOAD FIXTURES INTO DATABASE."
-python ./api/manage.py loaddata ./api/db_fixtures.json
+python ./api/manage.py loaddata ./api/fixtures/db_fixtures.json
 if [ $? -eq 0 ]
 then
     echo ">>> [${GREEN}SUCCESS${NC}]: FIXTURES LOADED."
