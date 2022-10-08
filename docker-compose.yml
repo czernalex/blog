@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  blog_api:
+    build: ./services/blog_api
+    command: python ./api/manage.py runserver 0.0.0.0:5000
+    volumes:
+      - ./services/blog_api:/usr/src/app/
+    ports:
+      - 8080:5000
+    env_file:
+      - ./.env.dev
+    depends_on:
+      - db
+    
+  db:
+    image: postgres:13-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=blog_db
+
+volumes:
+  postgres_data:
