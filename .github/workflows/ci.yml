@@ -12,10 +12,12 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    env:
+      ENVIRONMENT: github_actions
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
     - name: Run docker-compose
-      run: docker-compose -f docker-compose.ci.yml up -d --build
+      run: docker-compose -f .github/docker-compose.ci.yml up -d --build
     - name: View test results
       run: docker logs -f blog_blog_api_1
