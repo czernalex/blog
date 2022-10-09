@@ -20,7 +20,7 @@ TEMPLATES_DIR = BASE_DIR / "templates"
 MEDIA_URL = "data/"
 MEDIA_ROOT = BASE_DIR / MEDIA_URL
 
-FIXTURES_DIR = BASE_DIR / "fixtures"
+FIXTURES_DIR = BASE_DIR / "blog" / "fixtures"
 
 THUMBNAIL_SIZE = 100, 100
 
