@@ -2,10 +2,10 @@ version: '3.8'
 
 services:
   blog_api:
-    build: ./services/blog_api
+    build: ../services/blog_api
     tty: true
     env_file:
-      - ./.env.dev
+      - ../.env.dev
     depends_on:
       - db
     
