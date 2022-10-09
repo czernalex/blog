@@ -30,15 +30,15 @@ class Post(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     full_img = models.ImageField(upload_to="full_imgs")
-    thumb_img = models.ImageField(upload_to="thumb_imgs")
+    thumb_img = models.ImageField(upload_to="thumb_imgs", blank=True)
     tags = models.ManyToManyField(Tag, blank=True)
 
     def save(self, *args, **kwargs):
         if (self.full_img):
             t_img = Image.open(self.full_img).copy()
             t_img.thumbnail(settings.THUMBNAIL_SIZE, Image.ANTIALIAS)
-            t_img.save(settings.MEDIA_ROOT / "thumb_imgs" / self.full_img.name)
-            self.thumb_img = "thumb_imgs/{}".format(self.full_img.name)
+            t_img.save(settings.MEDIA_ROOT / "thumb_imgs" / self.full_img.name.split("/")[-1])
+            self.thumb_img = "thumb_imgs/{}".format(self.full_img.name.split("/")[-1])
         super(Post, self).save(*args, **kwargs)
 
     class Meta:
