@@ -17,3 +17,5 @@ jobs:
       uses: actions/checkout@v2
     - name: Run docker-compose
       run: docker-compose -f docker-compose.ci.yml up -d --build
+    - name: View test results
+      run: docker logs -f blog_blog_api_1

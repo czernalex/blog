@@ -14,7 +14,5 @@ then
     echo ">>> [${GREEN}SUCCESS${NC}]: POSTGRESQL DATABASE STARTED."
 fi
 
-cd ./api/
-
 echo ">>> [${BLUE}INFO${NC}]: EXECUTING $@."
 exec "$@"

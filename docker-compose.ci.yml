@@ -5,11 +5,7 @@ services:
     build:
       context: ./services/blog_api
       dockerfile: Dockerfile.ci
-    command: pytest
-    volumes:
-      - ./services/blog_api:/usr/src/app/
-    ports:
-      - 8080:5000
+    command: pytest ./api/
     env_file:
       - ./.env.dev
     depends_on:
@@ -17,12 +13,7 @@ services:
     
   db:
     image: postgres:13-alpine
-    volumes:
-      - postgres_data:/var/lib/postgresql/data/
     environment:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=admin
       - POSTGRES_DB=blog_db
-
-volumes:
-  postgres_data:
