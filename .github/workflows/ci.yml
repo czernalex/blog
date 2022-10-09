@@ -21,3 +21,5 @@ jobs:
       run: docker-compose -f .github/docker-compose.ci.yml up -d --build
     - name: Run tests
       run: docker exec github_blog_api_1 pytest ./api/
+    - name: Enforce code style
+      run: docker exec github_blog_api_1 flake8
