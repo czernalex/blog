@@ -60,7 +60,7 @@ then
     else
         echo ">>> [${RED}ERROR${NC}]: LOADING FIXTURES FAILED."
     fi
-
-    echo ">>> [${BLUE}INFO${NC}]: EXECUTING $@."
-    exec "$@"
 fi
+
+echo ">>> [${BLUE}INFO${NC}]: EXECUTING $@."
+exec "$@"
