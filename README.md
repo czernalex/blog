@@ -20,3 +20,9 @@ $ docker-compose up -d --build
 ```
 
 When both containers successfully start, open your browser [here](http://localhost:8080) to see result.
+
+#### Run tests locally
+```
+$ docker-compose up -d --build
+$ docker exec blog-blog_api-1 pytest ./api/
+```
