@@ -14,7 +14,7 @@ Project consists of two services running in docker containers:
 ## Usage
 Open your terminal and run following commands in given order:
 ```
-$ git@github.com:czernalex/blog.git
+$ git clone git@github.com:czernalex/blog.git
 $ cd blog
 $ docker-compose up -d --build
 ```
